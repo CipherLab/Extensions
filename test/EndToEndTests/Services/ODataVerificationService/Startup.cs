@@ -29,11 +29,11 @@ namespace ODataVerificationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOData();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc((x => x.EnableEndpointRouting = false));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseMvc(b =>
             {
